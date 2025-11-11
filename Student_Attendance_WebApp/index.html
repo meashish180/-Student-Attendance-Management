@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Stellar Attendance Suite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0;font-family:"Poppins",sans-serif;}
+        body,html{height:100%;scroll-behavior:smooth;background:#f5f5f5;color:#333;}
+        a{text-decoration:none;color:#fff;}
+        header.hero{
+          position:relative;height:100vh;
+          background:url('https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+          display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;
+        }
+        header.hero::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.55);z-index:0;}
+        .hero-content{position:relative;z-index:1;max-width:700px;padding:20px;animation:fadeIn 2s ease;}
+        .hero-content h1{font-size:3rem;font-weight:700;margin-bottom:10px;}
+        .hero-content h2{font-weight:400;color:#eee;margin-bottom:25px;}
+        .btn-group{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;}
+        .btn{background:#0288d1;padding:12px 28px;border-radius:5px;font-weight:500;transition:.3s;box-shadow:0 3px 10px rgba(0,0,0,0.3);}
+        .btn:hover{background:#03a9f4;transform:translateY(-4px);}
+        section{padding:80px 12%;background:#fff;opacity:0;transform:translateY(40px);transition:all .8s ease;}
+        section.show{opacity:1;transform:translateY(0);}
+        section img{width:100%;border-radius:10px;margin-top:25px;}
+        section h2{text-align:center;font-size:2rem;margin-bottom:20px;color:#0288d1;}
+        section p{font-size:1.05rem;line-height:1.6;text-align:center;}
+        footer{background:#111;color:#ccc;text-align:center;padding:25px 0;font-size:.9rem;}
+        @keyframes fadeIn{from{opacity:0;transform:scale(.9);}to{opacity:1;transform:scale(1);}}
+    </style>
+</head>
+
+<body>
+
+<header class="hero">
+    <div class="hero-content">
+        <h1>Stellar Institute of Technology</h1>
+        <h2>Smart Attendance Management Portal</h2>
+        <div class="btn-group">
+            <a href="admin_login.html" class="btn">Admin Login</a>
+            <a href="teacher_login.html" class="btn">Teacher Login</a>
+            <a href="student_login.html" class="btn">Student Login</a>
+        </div>
+    </div>
+</header>
+
+<section id="about">
+    <h2>Why Choose Stellar Attendance Suite?</h2>
+    <p>
+        Attendance should be effortless. Our platform empowers administrators, teachers, and students
+        with instant insights, real‑time analytics, and a secure environment. Mark, track, and analyze attendance from any device.
+    </p>
+    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1600&q=80"
+         alt="Students in a classroom">
+</section>
+
+<section id="features">
+    <h2>Features</h2>
+    <p>
+        ✦ Role‑based dashboards <br>
+        ✦ Real‑time attendance charts <br>
+        ✦ Data export and visual reports <br>
+        ✦ Secure login with session tracking
+    </p>
+    <!-- ✅ new analytics‑style image -->
+    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80"
+         alt="Analytics dashboard">
+</section>
+
+<section id="contact">
+    <h2>Get in Touch</h2>
+    <p>
+        Have feedback or need help? Reach out to our support team and we’ll respond promptly!
+    </p>
+    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80"
+         alt="Contact support">
+</section>
+
+<footer>
+    &copy; 2025 Stellar Institute 
+</footer>
+
+<script>
+    // fade‑in on scroll
+    const sections=document.querySelectorAll('section');
+    window.addEventListener('scroll',()=>{
+      const trigger=window.innerHeight*0.85;
+      sections.forEach(sec=>{
+        const top=sec.getBoundingClientRect().top;
+        if(top<trigger){sec.classList.add('show');}
+      });
+    });
+    // gentle parallax background
+    window.addEventListener('scroll',()=>{
+      const hero=document.querySelector('.hero');
+      hero.style.backgroundPositionY=window.scrollY*0.4+'px';
+    });
+</script>
+</body>
+</html>
